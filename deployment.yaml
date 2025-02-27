@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: move-to-cloud
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: move-to-cloud
+  template:
+    metadata:
+      labels:
+        app: move-to-cloud
+    spec:
+      containers:
+      - name: move-to-cloud
+        image: ton-image-docker:latest
+        ports:
+        - containerPort: 8080
